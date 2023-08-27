@@ -1,7 +1,14 @@
 from dotenv import dotenv_values
 
+import os
+
+env_file_path = os.path.join(os.path.dirname(__file__), '.env')
+print("Intentando cargar el archivo:", env_file_path)
+
 class Config:
     config = dotenv_values(".env")
+
+    print("Config cargado:", config)
     
     SECRET_KEY = config['SECRET_KEY']
     SERVER_NAME = "127.0.0.1:5000"
